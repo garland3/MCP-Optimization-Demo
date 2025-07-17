@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Optimization Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 MCP Optimization Dashboard</h1>
+            <div class="header-controls">
+                <div class="status-compact">
+                    <span class="label">Phase:</span>
+                    <span id="currentPhase" class="phase-idle">Idle</span>
+                    <div class="progress-bar-small">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary">Start</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="workflow-phases">
+            <div id="phase-doe" class="phase-indicator compact">
+                <div class="phase-number">1</div>
+                <span>DoE</span>
+            </div>
+            <div id="phase-modeling" class="phase-indicator compact">
+                <div class="phase-number">2</div>
+                <span>Model</span>
+            </div>
+            <div id="phase-optimization" class="phase-indicator compact">
+                <div class="phase-number">3</div>
+                <span>Optimize</span>
+            </div>
+            <div id="phase-refinement" class="phase-indicator compact">
+                <div class="phase-number">4</div>
+                <span>Refine</span>
+            </div>
+        </div>
+
+        <div class="main-layout">
+            <div class="left-column">
+                <div class="section plot-section">
+                    <h3>📊 Data Points & Response Surface</h3>
+                    <div class="plot-container">
+                        <div class="plot-tabs">
+                            <button id="tab2d" class="plot-tab active">2D Plot</button>
+                            <button id="tab3d" class="plot-tab">3D Surface</button>
+                        </div>
+                        <div id="plot2d" class="plot-content active">
+                            <div id="scatterPlot"></div>
+                        </div>
+                        <div id="plot3d" class="plot-content">
+                            <div id="surfacePlot"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section data-section">
+                    <h3>Data Collection</h3>
+                    <div id="dataPoints" class="data-list">
+                        <p class="no-data">No data points collected yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h3>Model Results</h3>
+                    <div id="modelResults" class="results-card">
+                        <p class="no-data">No model fitted yet</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Optimization Results</h3>
+                    <div id="optimizationResults" class="results-card">
+                        <p class="no-data">No optimization results yet</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Activity Log</h3>
+                    <div id="activityLog" class="log-container">
+                        <p class="log-entry">System ready</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
